@@ -20,6 +20,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"math/big"
 	"sort"
 
@@ -338,6 +339,7 @@ func (t *Trace) traceTransaction(ctx context.Context, cursor core.ExecutionCurso
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("vmTrace", vmTrace)
 	frames, err := renderTraceFrames(res, vmTrace)
 	if err != nil {
 		return nil, err
